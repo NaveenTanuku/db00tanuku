@@ -14,8 +14,23 @@ exports.ball_detail = function(req, res) {
 res.send('NOT IMPLEMENTED: ball detail: ' + req.params.id);
 };
 // Handle ball create on POST.
-exports.ball_create_post = function(req, res) {
-res.send('NOT IMPLEMENTED: ball create POST');
+exports.ball_create_post = async function(req, res) {
+    console.log(req.body)
+    let document = new ball();
+    // We are looking for a body, since POST does not have query parameters.
+    // Even though bodies can be in many different formats, we will be picky
+    // and require that it be a json object
+    // {"costumetype":"goat", "cost":12, "size":"large"}
+    document.type = req.body.type;
+    document.shape = req.body.shape;
+    document.quantity = req.body.quantity;
+    try{
+    let result = await document.save();
+    res.send(result);
+    }
+    catch(err){
+    res.error(500,`{"error": ${err}}`);
+    };
 };
 // Handle ball delete form on DELETE.
 exports.ball_delete = function(req, res) {
