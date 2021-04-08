@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1= title
+   p rows: #{query.rows}, columns: #{query.cols}
+    - var rows = Number(query.rows)
+    - var cols = Number(query.cols)
+  if !Number.isInteger(rows) || !Number.isInteger(cols)
+    p rows and cols should be integer
+  else if rows>4 || rows<0
+    p rows should be range 0 to 4
+  else if cols>4 || cols<0
+    p cols  should be range 0 to 4
+  else 
+    table#outer
+        - for(let i=0; i<rows; i++) {
+            tr#middle
+                - for(let j=0; j<cols; j++) {
+                    td #{i+j}
+                - }
+        - }
