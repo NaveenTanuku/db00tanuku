@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 const ballSchema = mongoose.Schema({
 type: String,
-Quantity: String,
-Shape: Number
+shape: String,
+quantity: Number
 })
 module.exports = mongoose.model("ball", ballSchema)

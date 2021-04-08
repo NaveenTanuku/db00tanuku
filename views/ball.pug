@@ -5,23 +5,7 @@ block content
    div(class="container-fluid")
         div(class="row")
             -
-                let balls = [
-                    {
-                        "type": "basketball",
-                        "shape": "round",
-                        "quantity": "10"                        
-                    },
-                    {
-                        "type": "ruggbyball",
-                        "shape": "oval",
-                        "quantity": "20"
-                    },
-                    {
-                        "type": "pinball",
-                        "shape": "speherical",
-                        "quantity": "42"
-                    },                   
-                ]
+                let balls = results
             each ball in balls 
                 div(class="col-sm-2") #{ball.type}
                 div(class="col-sm-2") #{ball.shape}

@@ -25,3 +25,14 @@ res.send('NOT IMPLEMENTED: ball delete DELETE ' + req.params.id);
 exports.ball_update_put = function(req, res) {
 res.send('NOT IMPLEMENTED: ball update PUT' + req.params.id);
 };
+// VIEWS
+// Handle a show all view
+exports.ball_view_all_Page = async function(req, res) {
+    try{
+    theballs = await ball.find();
+    res.render('ball', { title: 'Ball Search Results', results: theballs });
+    }
+    catch(err){
+    res.error(500,`{"error": ${err}}`);
+    }
+    };

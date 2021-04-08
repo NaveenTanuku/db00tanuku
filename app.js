@@ -28,9 +28,9 @@ console.log("Connection to DB succeeded")});
 async function recreateDB(){
   // Delete everything
   await ball.deleteMany();
-  let instance1 = new ball({type:"basketball", Quality:'round',Shape:10});
-  let instance2 = new ball({type:"ruggbyball", Quality:'oval',Shape:20});
-  let instance3 = new ball({type:"ghost", Quality:'speherical',Shape:42});
+  let instance1 = new ball({type:"basketball", shape:'round',quantity:10});
+  let instance2 = new ball({type:"ruggbyball", shape:'oval',quantity:20});
+  let instance3 = new ball({type:"football", shape:'speherical',quantity:42});
   instance1.save( function(err,doc) {
   if(err) return console.error(err);
   console.log("First object saved")
