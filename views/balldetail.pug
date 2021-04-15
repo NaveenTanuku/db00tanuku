@@ -3,20 +3,23 @@ extends layout
 block content
   h1= title
 
-  - let ballid = toShow._id
-  - let type = toShow.type
-  - let shape = toShow.shape
-  - let quantity = toShow.quantity
-  div
-    div.row
-      div(class='ballAttr mr-3') ball ID is:
-      div #{ballid}
-    div.row
-      div(class='ballAttr mr-3') ball Type is:
-      div #{type}
-    div.row
-      div(class='ballAttr mr-3') ball quantity is:
-      div #{quantity}
-    div.row
-      div(class='ballAttr mr-3') ball shape is:
-      div #{shape}
+  if (toShow == null)
+    h2 No instance to delete
+  else
+    - let ballid = toShow._id
+    - let type = toShow.type
+    - let shape = toShow.shape
+    - let quantity = toShow.quantity
+    div
+      div.row
+        div(class='ballAttr mr-3') ball ID is:
+        div #{ballid}
+      div.row
+        div(class='ballAttr mr-3') ball Type is:
+        div #{type}
+      div.row
+        div(class='ballAttr mr-3') ball quantity is:
+        div #{quantity}
+      div.row
+        div(class='ballAttr mr-3') ball shape is:
+        div #{shape}

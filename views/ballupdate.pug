@@ -3,26 +3,29 @@ extends layout
 block content
   h1= title
 
-  - let ballid = toShow._id
-  - let type = toShow.type
-  - let shape = toShow.shape
-  - let quantity = toShow.quantity
+  if (toShow == null)
+    h2 No instance to delete
+  else
+    - let ballid = toShow._id
+    - let type = toShow.type
+    - let shape = toShow.shape
+    - let quantity = toShow.quantity
   
-  div.row(class='mb-2')
-    div.mr-1 ID is
-    div #{ballid}
-  - let actionid = "/resource/balls/" + ballid
-  form(id='ballForm', action= actionid, method="PUT")
-    div.form-group
-        label.ballAttr(for='type') ball type
-        input#type(type='text', name='type', value= type )
-    div.form-group
-        label.ballAttr(for='quantity') ball quantity
-        input#quantity(type='number', name='quantity', value= quantity )
-    div.form-group
-        label.ballAttr(for='shape') ball shape
-        input#shape(type='text', name='shape', value= shape )
-    input(type="submit")
+    div.row(class='mb-2')
+      div.mr-1 ID is
+      div #{ballid}
+    - let actionid = "/resource/balls/" + ballid
+    form(id='ballForm', action= actionid, method="PUT")
+      div.form-group
+          label.ballAttr(for='type') ball type
+          input#type(type='text', name='type', value= type )
+      div.form-group
+          label.ballAttr(for='quantity') ball quantity
+          input#quantity(type='number', name='quantity', value= quantity )
+      div.form-group
+          label.ballAttr(for='shape') ball shape
+          input#shape(type='text', name='shape', value= shape )
+      input(type="submit")
 
   script.
     document.forms['ballForm'].addEventListener('submit', (event) => {
