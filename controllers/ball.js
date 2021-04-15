@@ -89,3 +89,17 @@ exports.ball_detail = async function(req, res) {
         res.send(`{"error": document for id ${req.params.id} not found`);
     }
 };
+
+// Handle a show one view with id specified by query
+exports.ball_view_one_Page = async function(req, res) {
+    console.log("single view for id "  + req.query.id)
+    try{
+        result = await ball.findById( req.query.id)
+        res.render('balldetail', 
+{ title: 'ball Detail', toShow: result });
+    }
+    catch(err){
+        res.status(500)
+        res.send(`{'error': '${err}'}`);
+    }
+};

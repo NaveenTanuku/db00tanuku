@@ -6,7 +6,7 @@ var router = express.Router();
 router.get('/', ball_controllers.ball_view_all_Page);
 
 /* GET detail ball page */
-router.get('/detail', ball_controlers.ball_view_one_Page);
+router.get('/detail', ball_controllers.ball_view_one_Page);
 
 
 module.exports = router;
