@@ -8,6 +8,10 @@ router.get('/', ball_controllers.ball_view_all_Page);
 /* GET detail ball page */
 router.get('/detail', ball_controllers.ball_view_one_Page);
 
+/* GET create ball page */
+router.get('/create', ball_controllers.ball_create_Page);
+
+
 
 module.exports = router;
 
