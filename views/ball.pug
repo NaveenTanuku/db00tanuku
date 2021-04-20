@@ -7,6 +7,13 @@ block content
             -
                 let balls = results
             each ball in balls 
-                div(class="col-sm-2") #{ball.type}
-                div(class="col-sm-2") #{ball.shape}
-                div(class="col-sm-2") #{ball.quantity}
+                //div(class="col-sm-2") #{ball.type}
+                //div(class="col-sm-2") #{ball.shape}
+                //div(class="col-sm-2") #{ball.quantity}
+                - let destination = `dispatch(\"/ball/update?id=${ball._id}\")`
+                div(class="row-sm-2" class='m-1') Ball #{ball.type}(#{ball.shape}) is #{ball.qunatity}
+                    button(class="btn-primary ml-1", onclick=destination) Update
+            script.
+                function dispatch(path){
+                    window.location.href = path
+                } 
